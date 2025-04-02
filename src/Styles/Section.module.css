@@ -1,0 +1,38 @@
+.section{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    background: white;
+}
+
+.abs{
+    position: absolute;
+    z-index: 10;
+}
+
+.impress{
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+
+.text{
+    text-align: left;
+    margin-top: 16vh;
+}
+
+@keyframes scroll {
+    from{
+        transform: translate(0);
+    }to{
+        transform: translateY(-100vh);
+    }
+}
+
+.scroll{
+    animation: scroll 3s ease-in-out both;
+}
