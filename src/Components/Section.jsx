@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { FaArrowRight } from "react-icons/fa";
 import styles from '../Styles/Section.module.css'
+import model from '../assets/Img/model-two.png'
 function Section({ sect, handleHeader}){
     if(sect === "first"){
         const text = ["Elegance", "Steeze", "Flair", "We own it!", "Styz"];
@@ -15,8 +17,8 @@ function Section({ sect, handleHeader}){
 
             const timeout = setTimeout(() => {
                 console.log(index);
-                setIndex((prev) => setIndex(prev + 1));
-            }, 2000);
+                setIndex((prev) => prev + 1);
+            }, 1000);
 
             return () => {
                 console.log("last index", index);
@@ -34,9 +36,16 @@ function Section({ sect, handleHeader}){
     return (
       <div className={`${styles.section} ${styles.impress}`}>
         <div className={styles.text}>
-          <h2>With Styz,</h2>
-          <p>You'll Never Fail <br /> to Impress</p>
-          <button>Shop Now</button>
+          <div>
+            <h2>When You Shop At Styz,</h2>
+            <h2>You Never Fail to Impress.</h2>
+            <button className={styles.btn}>
+              Shop Now <FaArrowRight size={20} />{" "}
+            </button>
+          </div>
+        </div>
+        <div className={styles.wrapper}>
+          <img src={model} alt="model" className={styles.img} />
         </div>
       </div>
     );

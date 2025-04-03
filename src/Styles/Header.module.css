@@ -5,11 +5,29 @@
     position: fixed;
     top: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
     border-bottom: 1px solid;
     transition: all 2s ease;
     transform: translateY(-100vh);
     animation: header 2s ease-in-out 2.5s forwards;
+}
+
+.header > div{
+    height: 50%;
+}
+
+.title h2{
+    font-size: 2rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.icons{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 @keyframes header {
