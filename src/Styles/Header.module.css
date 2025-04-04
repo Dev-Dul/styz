@@ -4,14 +4,18 @@
     display: flex;
     position: fixed;
     top: 0;
+    z-index: 100;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     border-bottom: 1px solid;
     transition: all 2s ease;
     transform: translateY(-100vh);
-    animation: header 2s ease-in-out 2.5s forwards;
+    background: white;
+    color: black;
+    animation: header 2s ease-in-out 7s forwards;
 }
+
 
 .header > div{
     height: 50%;

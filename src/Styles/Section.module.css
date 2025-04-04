@@ -82,5 +82,5 @@
 }
 
 .scroll{
-    animation: scroll 3s ease-in-out both;
+    animation: scroll 3s ease-in-out forwards;
 }

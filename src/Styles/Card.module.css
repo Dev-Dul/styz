@@ -1,0 +1,46 @@
+.card{
+    height: 250px;
+    width: 70%;
+    border-radius: 15px;
+    background: white;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.img{
+    height: 70%;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.add{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input{
+    width: 2rem;
+    height: 2rem;
+}
+
+.btns{
+    width: 25px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
