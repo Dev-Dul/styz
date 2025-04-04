@@ -70,7 +70,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    transition: all .5s ease;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn > *{
+    transition: all .5s ease;
+}
+
+.btn:hover{
+    width: 17rem;
+}
+
+.btn:hover >*{
+    transform: translateX(25px);
 }
 
 @keyframes scroll{
