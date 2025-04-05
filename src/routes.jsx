@@ -1,7 +1,7 @@
 import App from "./App";
 import Shop from "./Components/Shop";
 import Hero from "./Components/Hero";
-import Checkout from "./Components/Checkout";
+import Cart from "./Components/Cart";
 
 
 const routes = [
@@ -20,8 +20,8 @@ const routes = [
             },
 
             {
-                path: "checkout",
-                element: <Checkout />,
+                path: "cart",
+                element: <Cart />,
             },
         ],
     },

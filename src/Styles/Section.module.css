@@ -75,6 +75,7 @@
 }
 
 .btn > *{
+    pointer-events: none;
     transition: all .5s ease;
 }
 
