@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import useData from "./Handlers";
 import Loader from "./Loader";
+import ErrorPage from "./Error";
 import Card from "./Card";
 import styles from '../Styles/Shop.module.css'
 import { useOutletContext } from "react-router-dom";
@@ -10,6 +11,7 @@ function Shop(){
     const context = useOutletContext();
     
     if(loading) return <Loader />
+    if(error) return <ErrorPage error={error}/>
     
     return(
         <div className={styles.shop}>

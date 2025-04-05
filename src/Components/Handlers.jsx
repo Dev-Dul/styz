@@ -3,7 +3,7 @@ import { useState } from "react";
 function useData(){
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(null);
     async function getData() {
       try {
         // Fetch all products
@@ -23,8 +23,7 @@ function useData(){
         setData(fashionProducts);
         console.log(fashionProducts); // Logs only fashion & accessories
       }catch(error){
-        console.error("Error fetching fashion products:", error);
-        setError(error.message);
+        setError(error);
       }finally{
         setLoading(false);
       }
