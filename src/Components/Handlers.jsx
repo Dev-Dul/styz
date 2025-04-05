@@ -21,7 +21,6 @@ function useData(){
         );
 
         setData(fashionProducts);
-        console.log(fashionProducts); // Logs only fashion & accessories
       }catch(error){
         setError(error);
       }finally{

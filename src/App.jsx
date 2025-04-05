@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import Header from './Components/Header'
 import { Outlet } from 'react-router-dom'
 import './App.css'
 
 function App() {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   function addCart(idt, cnt = 1){
     const item = {
       id: idt,
@@ -29,4 +28,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

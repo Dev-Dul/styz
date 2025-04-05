@@ -1,0 +1,15 @@
+.oops{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    color: black;
+}
+
+.oops h2, .oops p:nth-last-child(1){
+    margin: 0;
+}

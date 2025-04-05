@@ -12,7 +12,7 @@ function Header( {header} ){
         <div className={styles.icons}>
           <FaHome title="Home" size={20} onClick={() => navigate('/')}/>
           <FaShoppingBag title="Shop" size={20} onClick={() => navigate('shop')}/>
-          <FaShoppingCart title="Cart" size={20}/>
+          <FaShoppingCart title="Cart" size={20} onClick={() => navigate('checkout')}/>
         </div>
       </div>
     );

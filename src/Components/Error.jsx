@@ -1,10 +1,9 @@
-import { useRouteError } from "react-router-dom";
-import styles from '../Styles/Error.module.css'
+import styles from '../Styles/Error.module.css';
 
 
 function ErrorPage( {error} ) {
 
-  return (
+  return(
     <div className={styles.error}>
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
