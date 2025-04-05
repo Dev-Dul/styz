@@ -1,11 +1,27 @@
 .shop{
     height: auto;
     width: 100%;
-    padding-top: 18vh;
+    padding-top: 25vh;
     padding-bottom: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
     place-items: center;
     row-gap: 1.5rem;
+}
+
+.header{
+    height: 22vh;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* background: white; */
+    padding: 0 1rem;
+}
+
+.header button{
+    margin-right: 2rem;
 }

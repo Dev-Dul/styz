@@ -1,13 +1,23 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import useData from "./Handlers";
+import Loader from "./Loader";
 import Card from "./Card";
 import styles from '../Styles/Shop.module.css'
+import { useOutletContext } from "react-router-dom";
 
 function Shop(){
-    const [cards, setCards] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const {data, loading, error} = useData();
+    const context = useOutletContext();
+    
+    if(loading) return <Loader />
+    
     return(
         <div className={styles.shop}>
-            {cards.map((card, index) => {
-                return <Card key={index} id={index} />
+            <div className={styles.header}>
+                <button>Go to Cart</button>
+            </div>
+            {data.map((card, index) => {
+                return <Card key={index} id={card.id} img={card.image} title={card.tiltle} price={card.price} context={context}/>
             })}
         </div>
     )

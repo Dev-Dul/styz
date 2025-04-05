@@ -1,23 +1,32 @@
 import { useState } from 'react';
 import styles from '../Styles/Card.module.css'
-function Card(){
+function Card(props){
     const [flipped, setFlipped] = useState(false);
     const [quantity, setQuantity] = useState(0);
     function handleFlip(){
         setFlipped(true);
         handleAdd();
     }
-    const handleAdd = () => setQuantity(quantity + 1);
+
+    function handleAdd(){
+        if(quantity === 0) props.context.addCart(props.id);
+        const newQtt = quantity + 1;
+        setQuantity(newQtt);
+        props.context.handleCart(props.id, newQtt);
+    }
+
     function handleDecrease(){
         if(quantity > 0){
-            setQuantity(quantity - 1);
+            const qtt = quantity - 1;
+            setQuantity(qtt);
+            props.context.handleCart(props.id, qtt);
         }
     }
 
     return (
       <div className={styles.card}>
         <div className={styles.img}>
-            <img src={null} />
+            <img src={props.img} className={styles.image}/>
         </div>
         <div className={styles.info}>
             <h2>Title</h2>
