@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Components/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import './App.css'
+import getData from './Components/Handlers'
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
   function addCart(idt, cnt = 1){
     const item = {
       id: idt,
@@ -20,10 +26,33 @@ function App() {
      );
   }
 
+ useEffect(() => {
+  async function fetchdata() {
+    try{
+      const result = await getData();
+      if(result instanceof Error){
+        setError(result);
+      }else{
+        setItems(result);
+      }
+    }catch(err){
+      setError(err);
+    }finally{
+      setLoading(false);
+    }
+  }
+
+   if(location.pathname === "/shop" && !items){
+    console.log("inside effect")
+    fetchdata();
+  }
+    
+ }, [location.pathname]);
+
   return(
     <>
       <Header />
-      <Outlet context={{cart, addCart, handleCart}} />
+      <Outlet context={{cart, addCart, handleCart, items, loading, error }} />
     </>
   )
 }

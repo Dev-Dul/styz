@@ -8,7 +8,9 @@ function ErrorPage( {error} ) {
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
-        <i> Error Message: {error.message || "Unknown error"}</i>
+        <i> Error Message: { error ? error.message : "Unknown error"}</i>
+        <br />
+        <i>Tip: Check your internet connection.</i>
       </p>
     </div>
   );

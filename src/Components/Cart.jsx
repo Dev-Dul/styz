@@ -5,7 +5,6 @@ import Tile from '../Components/Tile';
 import { useOutletContext } from "react-router-dom";
 
 function Cart(){
-    const { data, loading, error } = useData();
     const context = useOutletContext();
     console.log(context);
     
@@ -23,12 +22,13 @@ function Cart(){
 
     // console.log(data);
     const ids = context.cart.map(dt => dt.id);
-    const filtered = data.filter(elem => ids.includes(elem.id));
+    const filtered = context.items.filter(elem => ids.includes(elem.id));
 
     return(
-        <div>
+        <div className={styles.cart}>
             {filtered.map((tile, index) => {
-                const count = ids.find(item => item.id === tile.id);
+                const obj = context.cart.find(item => item.id === tile.id);
+                const count = obj.count;
                 return <Tile image={tile.image} price={tile.price} title={tile.title} key={index} count={count} />
             })}
         </div>

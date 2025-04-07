@@ -33,9 +33,9 @@ function Card(props){
             <div className={styles.flip}>
                 <button onClick={handleFlip}>Add to Cart</button>
                 <div className={`${styles.add} ${flipped ? styles.front : styles.back}`}>
-                    <button className={styles.btns} onClick={handleAdd}>+</button>
-                    <input type="text" className={styles.input} value={quantity} />
                     <button className={styles.btns} onClick={handleDecrease}>-</button>
+                    <input type="text" className={styles.input} value={quantity} />
+                    <button className={styles.btns} onClick={handleAdd}>+</button>
                 </div>
             </div>
         </div>
