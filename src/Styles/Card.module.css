@@ -58,6 +58,17 @@
     text-align: center;
 }
 
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input{
+  -moz-appearance: textfield; /* Firefox */
+}
+
+
 .btns{
     width: 25px;
     height: 40px;

@@ -1,8 +1,21 @@
 import { useState } from 'react';
 import styles from '../Styles/Card.module.css'
 function Card(props){
-    const [flipped, setFlipped] = useState(false);
-    const [quantity, setQuantity] = useState(0);
+    const storedQuantity = sessionStorage.getItem(`quantity-${props.id}`);
+    const storedFlipped = sessionStorage.getItem(`flipped-${props.id}`);
+
+    const [flipped, setFlipped] = useState(storedFlipped === "true");
+    const [quantity, setQuantity] = useState(storedQuantity ? parseInt(storedQuantity) : 0);
+
+    useEffect(() => {
+      sessionStorage.setItem(`quantity-${props.id}`, quantity);
+    }, [quantity, props.id]);
+
+    useEffect(() => {
+      sessionStorage.setItem(`flipped-${props.id}`, flipped);
+    }, [flipped, props.id]);
+
+    
     function handleFlip(){
         setFlipped(true);
         handleAdd();
@@ -23,6 +36,14 @@ function Card(props){
         }
     }
 
+    function handleChange(e){
+        const val = parseInt(e.target.value);
+        if(val !== 0){
+            setQuantity(val);
+            props.context.handleCart(props.id, val);
+        }
+    }
+
     return (
       <div className={styles.card}>
         <div className={styles.img}>
@@ -34,7 +55,7 @@ function Card(props){
                 <button onClick={handleFlip}>Add to Cart</button>
                 <div className={`${styles.add} ${flipped ? styles.front : styles.back}`}>
                     <button className={styles.btns} onClick={handleDecrease}>-</button>
-                    <input type="text" className={styles.input} value={quantity} />
+                    <input type="number" className={styles.input} value={quantity} min={1} onChange={handleChange} />
                     <button className={styles.btns} onClick={handleAdd}>+</button>
                 </div>
             </div>

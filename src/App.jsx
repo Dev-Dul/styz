@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './Components/Header'
 import { Outlet, useLocation } from 'react-router-dom'
-import './App.css'
 import getData from './Components/Handlers'
+import './App.css';
 
 function App() {
   const [cart, setCart] = useState([]);
