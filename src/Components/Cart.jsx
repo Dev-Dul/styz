@@ -12,6 +12,11 @@ function Cart(){
         sessionStorage.setItem(`quantity-${id}`, 0);
         sessionStorage.setItem(`flipped-${id}`, false);
     }
+
+    function clearCart(){
+        sessionStorage.clear();
+        context.setCart([]);
+    }
     
     if(context.cart.length === 0){
         return (
@@ -27,9 +32,18 @@ function Cart(){
 
     const ids = context.cart.map(dt => dt.id);
     const filtered = context.items.filter(elem => ids.includes(elem.id));
+    const count = context.cart.reduce((accumulator, item) => accumulator + item.count, 0);
+    const prices = filtered.reduce((accumulator, item) => accumulator + item.price, 0);
+
 
     return(
         <div className={styles.cart}>
+            <div className={styles.header}>
+                <h2>Total items: {filtered.length}</h2>
+                <h2>Total price: ${count * prices}</h2>
+                <button onClick={clearCart}>Clear Cart</button>
+                <button>Checkout</button>
+            </div>
             {filtered.map((tile, index) => {
                 const obj = context.cart.find(item => item.id === tile.id);
                 const count = obj.count;
