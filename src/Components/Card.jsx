@@ -22,7 +22,7 @@ function Card(props){
     }
 
     function handleAdd(){
-        if(quantity === 0 || flipped) props.context.addCart(props.id);
+        if(quantity === 0) props.context.addCart(props.id);
         console.log(quantity);
         console.log(flipped);
         const newQtt = quantity + 1;

@@ -6,7 +6,12 @@ import { useOutletContext } from "react-router-dom";
 
 function Cart(){
     const context = useOutletContext();
-    console.log(context);
+
+    function handleRemove(id){
+        context.setCart((prev) => prev.filter(prod => prod.id !== id));
+        sessionStorage.setItem(`quantity-${id}`, 0);
+        sessionStorage.setItem(`flipped-${id}`, false);
+    }
     
     if(context.cart.length === 0){
         return (
@@ -28,7 +33,7 @@ function Cart(){
             {filtered.map((tile, index) => {
                 const obj = context.cart.find(item => item.id === tile.id);
                 const count = obj.count;
-                return <Tile image={tile.image} price={tile.price} title={tile.title} key={index} count={count} />
+                return <Tile image={tile.image} price={tile.price} title={tile.title} key={index} count={count} id={tile.id} handleRemove={handleRemove} />
             })}
         </div>
     )

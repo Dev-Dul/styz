@@ -5,7 +5,12 @@ import getData from './Components/Handlers'
 import './App.css';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    // Load cart from sessionStorage on mount
+    const savedCart = sessionStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -25,6 +30,10 @@ function App() {
       prev.map(item => item.id === id ? {...item, count: newCount} : item)
      );
   }
+
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
  useEffect(() => {
   async function fetchdata() {
@@ -53,7 +62,7 @@ function App() {
   return(
     <>
       <Header />
-      <Outlet context={{cart, addCart, handleCart, items, loading, error }} />
+      <Outlet context={{cart, addCart, setCart, handleCart, items, loading, error }} />
     </>
   )
 }
