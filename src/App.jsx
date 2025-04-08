@@ -38,11 +38,12 @@ function App() {
     }catch(err){
       setError(err);
     }finally{
+      console.log("done fetching!");
       setLoading(false);
     }
   }
 
-   if(location.pathname === "/shop" && !items){
+   if(location.pathname === "/shop" && items.length === 0){
     console.log("inside effect")
     fetchdata();
   }

@@ -20,7 +20,6 @@ function Cart(){
         )
     }
 
-    // console.log(data);
     const ids = context.cart.map(dt => dt.id);
     const filtered = context.items.filter(elem => ids.includes(elem.id));
 

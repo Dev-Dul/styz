@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../Styles/Card.module.css'
 function Card(props){
     const storedQuantity = sessionStorage.getItem(`quantity-${props.id}`);
@@ -22,7 +22,9 @@ function Card(props){
     }
 
     function handleAdd(){
-        if(quantity === 0) props.context.addCart(props.id);
+        if(quantity === 0 || flipped) props.context.addCart(props.id);
+        console.log(quantity);
+        console.log(flipped);
         const newQtt = quantity + 1;
         setQuantity(newQtt);
         props.context.handleCart(props.id, newQtt);
@@ -44,13 +46,14 @@ function Card(props){
         }
     }
 
+    const name = props.title.slice(0, 18) + "...";
     return (
       <div className={styles.card}>
         <div className={styles.img}>
             <img src={props.img} className={styles.image}/>
         </div>
         <div className={styles.info}>
-            <h2>Title</h2>
+            <h2>{name}</h2>
             <div className={styles.flip}>
                 <button onClick={handleFlip}>Add to Cart</button>
                 <div className={`${styles.add} ${flipped ? styles.front : styles.back}`}>

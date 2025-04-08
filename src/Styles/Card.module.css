@@ -15,8 +15,8 @@
 }
 
 .img{
-    height: 60%;
-    width: 85%;
+    height: 150px;
+    /* width: px; */
     margin: 0 auto;
 }
 
@@ -38,6 +38,8 @@
 .info h2{
     color: black;
     margin: 0;
+    font-size: 1rem;
+    padding: 0 5px;
     /* position: absolute; */
 }
 
@@ -64,9 +66,9 @@
   margin: 0;
 }
 
-.input{
-  -moz-appearance: textfield; /* Firefox */
-}
+/* .input{
+  -moz-appearance: textfield; 
+} */
 
 
 .btns{
@@ -82,8 +84,8 @@
     height: 50px;
     position: relative;
     transform-style: preserve-3d;
-    border: 1px solid red;
     perspective: 1000px;
+    margin-top: 1rem;
 }
 
 .flip > *{
@@ -104,5 +106,5 @@
 }
 
 .front{
-    transform: translateX(180deg);
+    transform: rotateX(0deg);
 }
