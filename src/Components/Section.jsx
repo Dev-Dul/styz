@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import styles from '../Styles/Section.module.css'
-import model from '../assets/Img/model-two.png'
+import { Images } from './Handlers';
 import { useNavigate } from 'react-router-dom';
 
 function Section({ sect, show, setShow }){
@@ -32,6 +32,15 @@ function Section({ sect, show, setShow }){
         )
     }
 
+    const [img, setImg] = useState(0);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setImg((prev) => (prev + 1) % Images.length);
+      }, 8000)
+
+      return () => clearInterval(interval);
+    }, [])
+
     const navigate = useNavigate();
     return (
       <div className={`${styles.section} ${styles.impress} ${show ? styles.show : ''}` }>
@@ -45,7 +54,7 @@ function Section({ sect, show, setShow }){
           </div>
         </div>
         <div className={styles.wrapper}>
-          <img src={model} alt="model" className={styles.img} />
+          <img src={Images[img]} alt="model" className={styles.img} />
         </div>
       </div>
     );
