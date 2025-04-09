@@ -63,7 +63,7 @@ function App() {
   return(
     <>
       <Header />
-      <Outlet context={{cart, addCart, setCart, handleCart, items, loading, error }} />
+      <Outlet context={{cart, addCart, setCart, handleCart, items, loading, error, location }} />
     </>
   )
 }

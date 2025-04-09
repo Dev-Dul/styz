@@ -3,7 +3,9 @@ import { FaArrowRight } from "react-icons/fa";
 import styles from '../Styles/Section.module.css'
 import model from '../assets/Img/model-two.png'
 import { useNavigate } from 'react-router-dom';
-function Section({ sect }){
+
+function Section({ sect, show, setShow }){
+
     if(sect === "first"){
         const text = ["Elegance", "Steeze", "Flair", "We own it!", "Styz"];
         const [index, setIndex] = useState(0);
@@ -24,7 +26,7 @@ function Section({ sect }){
         }, [index, scroll]);
 
         return(
-            <div className={`${styles.section} ${styles.abs} ${scroll ? styles.scroll: ''}`}>
+            <div className={`${styles.section} ${styles.abs} ${scroll ? styles.scroll: ''}`} onAnimationEnd={() => setShow(true)}>
                 <h1 key={index}>{text[index]}</h1>
             </div>
         )
@@ -32,7 +34,7 @@ function Section({ sect }){
 
     const navigate = useNavigate();
     return (
-      <div className={`${styles.section} ${styles.impress}`}>
+      <div className={`${styles.section} ${styles.impress} ${show ? styles.show : ''}` }>
         <div className={styles.text}>
           <div>
             <h2>When You Shop At Styz,</h2>

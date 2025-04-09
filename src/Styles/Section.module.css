@@ -16,9 +16,6 @@
 .impress{
     align-items: flex-end;
     justify-content: space-around;
-    /* padding: 2rem; */
-    /* border: 1px solid; */
-    /* background: red; */
 }
 
 .impress > div{
@@ -40,12 +37,12 @@
     height: 100%;
     /* width: 100%; */
     position: absolute;
-    /* top: 0; */
     right: 100px;
-    /* left: 0; */
     bottom: 0;
     object-fit: cover;
     margin: 0;
+    opacity: 0;
+    transition: all 2.5s ease;
 }
 
 
@@ -57,6 +54,8 @@
 
 .text h2{
     margin-top: 0;
+    transition: all 2s ease;
+    transition-delay: 2s;
 }
 
 .text h2:first-of-type{
@@ -68,8 +67,21 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    transition: all .5s ease;
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1.5s ease;
+    transition-delay: 3s;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn, .text h2{
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+.show .btn, .show .text h2, .show .img{
+    opacity: 1;
+    transform: translate(0);
 }
 
 .btn > *{
@@ -94,5 +106,5 @@
 }
 
 .scroll{
-    animation: scroll 3s ease-in-out forwards;
+    animation: scroll 2s ease-in-out forwards;
 }

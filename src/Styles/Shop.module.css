@@ -8,6 +8,17 @@
     grid-template-rows: auto;
     place-items: center;
     row-gap: 1.5rem;
+    opacity: 0;
+    scale: 0;
+    transform: rotateY(180deg);
+    transform-origin: 0% 50%;
+    transition: all 2s ease;
+}
+
+.shop.anim{
+    scale: 1;
+    opacity: 1;
+    transform: rotate(0deg);
 }
 
 .header{
