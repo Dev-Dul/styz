@@ -1,0 +1,16 @@
+.checkout{
+    height: 50vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.checkout h2{
+    margin-bottom: 10px;
+}
+
+.checkout p{
+    margin: 5px;
+}
