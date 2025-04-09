@@ -36,7 +36,7 @@ function Section({ sect, show, setShow }){
     useEffect(() => {
       const interval = setInterval(() => {
         setImg((prev) => (prev + 1) % Images.length);
-      }, 5000)
+      }, 10000)
 
       return () => clearInterval(interval);
     }, [])
