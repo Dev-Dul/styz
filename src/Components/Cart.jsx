@@ -20,7 +20,7 @@ function Cart(){
         context.setCart([]);
     }
     
-    if(context.cart.length === 0){
+    if(context.cart.length === 0 || !context.items){
         return (
             <div className={styles.oops}>
                 <h2>Your Cart's Empty!</h2>
@@ -33,10 +33,14 @@ function Cart(){
     }
 
     const ids = context.cart.map(dt => dt.id);
-    const filtered = context.items.filter(elem => ids.includes(elem.id));
-    const count = context.cart.reduce((accumulator, item) => accumulator + item.count, 0);
-    const prices = filtered.reduce((accumulator, item) => accumulator + item.price, 0);
-
+    // const filtered = context.items.filter(elem => ids.includes(elem.id));
+    const filtered = context.items
+      .filter((elem) => ids.includes(elem.id))
+      .map((elem) => ({
+        ...elem,
+        count: context.cart.find((cartItem) => cartItem.id === elem.id)?.count || 0,
+      }));
+    const total = filtered.reduce((accumulator, item) => accumulator + (item.price * item.count) , 0);
 
     return(
         <div className={styles.cart}>
@@ -44,7 +48,7 @@ function Cart(){
                 <>
                     <div className={styles.header}>
                         <h2>Total items: {filtered.length}</h2>
-                        <h2>Total price: ${count * prices}</h2>
+                        <h2>Total price: ${total}</h2>
                         <button onClick={clearCart}>Clear Cart</button>
                         <button onClick={() => navigate('/cart/checkout')}>Checkout</button>
                     </div>

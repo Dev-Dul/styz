@@ -41,13 +41,14 @@ function App() {
       const result = await getData();
       if(result instanceof Error){
         setError(result);
+        setItems([]);
       }else{
-        setItems(result);
+        setItems(result || []);
       }
     }catch(err){
       setError(err);
+      setItems([]);
     }finally{
-      console.log("done fetching!");
       setLoading(false);
     }
   }

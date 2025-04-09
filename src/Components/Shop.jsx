@@ -8,7 +8,6 @@ import { useOutletContext } from "react-router-dom";
 
 function Shop(){
     const context = useOutletContext();
-    console.log(context);
     
     if(context.loading) return <Loader />
     if(context.error) return <ErrorPage error={error}/>

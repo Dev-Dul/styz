@@ -9,19 +9,16 @@ function Section({ sect }){
         const [index, setIndex] = useState(0);
         const [scroll, setScroll] = useState(false);
         useEffect(() => {
-            console.log("first index", index);
             if(index >= text.length - 1){
                 setScroll(true);
                 return;
             }
 
             const timeout = setTimeout(() => {
-                console.log(index);
                 setIndex((prev) => prev + 1);
-            }, 1000);
+            }, 800);
 
             return () => {
-                console.log("last index", index);
                 clearTimeout(timeout);                
             }
         }, [index, scroll]);
