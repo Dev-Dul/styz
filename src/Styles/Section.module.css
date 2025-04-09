@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
     background: white;
 }
 
@@ -45,6 +44,14 @@
     transition: all 2.5s ease;
 }
 
+.img.active{
+    opacity: 1;
+}
+
+.img.hidden{
+    opacity: 0;
+}
+
 
 .text{
     text-align: left;
@@ -79,7 +86,7 @@
     transform: translateY(150px);
 }
 
-.show .btn, .show .text h2, .show .img{
+.show .btn, .show .text h2{
     opacity: 1;
     transform: translate(0);
 }

@@ -8,6 +8,8 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    border: 1px solid black;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 .card h2{

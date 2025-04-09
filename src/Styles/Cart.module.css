@@ -33,7 +33,8 @@
 
 .cart.anim{
     opacity: 1;
-    transform: translate(0)
+    transform: translate(0);
+    background: #fffff7;
 }
 
 .header{

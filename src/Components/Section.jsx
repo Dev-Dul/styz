@@ -36,14 +36,16 @@ function Section({ sect, show, setShow }){
     useEffect(() => {
       const interval = setInterval(() => {
         setImg((prev) => (prev + 1) % Images.length);
-      }, 8000)
+      }, 5000)
 
       return () => clearInterval(interval);
     }, [])
 
     const navigate = useNavigate();
     return (
-      <div className={`${styles.section} ${styles.impress} ${show ? styles.show : ''}` }>
+      <div
+        className={`${styles.section} ${styles.impress} ${show ? styles.show : ""}`}
+      >
         <div className={styles.text}>
           <div>
             <h2>When You Shop At Styz,</h2>
@@ -54,7 +56,14 @@ function Section({ sect, show, setShow }){
           </div>
         </div>
         <div className={styles.wrapper}>
-          <img src={Images[img]} alt="model" className={styles.img} />
+          {Images.map((image, i) => (
+            <img
+              key={i}
+              src={image}
+              alt="model"
+              className={`${styles.img} ${i === img ? styles.active : styles.hidden }`}
+            />
+          ))}
         </div>
       </div>
     );

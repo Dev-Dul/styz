@@ -3,7 +3,7 @@ import modelTwo from '../assets/Img/model-two.png';
 import modelFour from '../assets/Img/model-four.png';
 import modelFive from '../assets/Img/model-five.png';
 
-export const Images = [ modelOne, modelTwo, modelFour, modelFive ];
+export const Images = [ modelOne, modelOne, modelTwo, modelFour, modelFive ];
 
 async function getData() {
   let result;
