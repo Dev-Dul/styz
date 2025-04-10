@@ -58,14 +58,15 @@ function Cart(){
     (accumulator, item) => accumulator + item.price * item.count,
     0
   );
+  // console.log(filtered.length);
+  // console.log(context.cart.length);
 
   return (
     <div className={`${styles.cart} ${animClass ? styles.anim : ""}`}>
       {location.pathname !== "/cart/checkout" && (
         <>
           <div className={styles.header}>
-            <h2>Total items: {filtered.length}</h2>
-            <h2>Total price: ${total}</h2>
+            <h2>Total: ${total}</h2>
             <button onClick={clearCart}>Clear Cart</button>
             <button onClick={() => navigate("/cart/checkout")}>Checkout</button>
           </div>

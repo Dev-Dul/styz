@@ -54,7 +54,6 @@ function App() {
   }
 
    if(location.pathname === "/shop" && items.length === 0){
-    console.log("inside effect")
     fetchdata();
   }
     
@@ -62,7 +61,7 @@ function App() {
 
   return(
     <>
-      <Header />
+      <Header cart={cart} />
       <Outlet context={{cart, addCart, setCart, handleCart, items, loading, error, location }} />
     </>
   )

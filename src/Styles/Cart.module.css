@@ -61,3 +61,12 @@
     padding: 5px 15px;
     font-size: 0.9rem;
 }
+
+
+@media screen and (max-width: 468px) {
+    .cart{
+        grid-template-columns: 1fr;
+        padding: 0;
+        padding-top: 27vh;
+    }
+}

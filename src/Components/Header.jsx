@@ -1,8 +1,10 @@
 import styles from '../Styles/Header.module.css'
 import { useNavigate } from 'react-router-dom';
 import { FaHome, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
-function Header(){
+import { span } from 'framer-motion/client';
+function Header({cart}){
   const navigate = useNavigate();
+  const check = cart.length !== 0;
 
     return (
       <div className={styles.header} >
@@ -12,7 +14,10 @@ function Header(){
         <div className={styles.icons}>
           <FaHome title="Home" size={20} onClick={() => navigate('/')}/>
           <FaShoppingBag title="Shop" size={20} onClick={() => navigate('shop')}/>
-          <FaShoppingCart title="Cart" size={20} onClick={() => navigate('cart')}/>
+          <span className={styles.cart}> 
+            <FaShoppingCart title="Cart" size={20} onClick={() => navigate('cart')}/>
+            {check && <span className={styles.num}>{cart.length}</span>}
+          </span>
         </div>
       </div>
     );
