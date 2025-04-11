@@ -8,7 +8,6 @@ function Header({cart}){
   const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
   const navigate = useNavigate();
   const check = cart.length !== 0;
-  console.log(darkMode);
 
   useEffect(() => {
     const root = document.getElementById("root");
