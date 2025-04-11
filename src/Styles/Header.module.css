@@ -33,7 +33,7 @@
     font-family: "aguero";
     text-transform: uppercase;
     background: transparent;
-    -webkit-text-stroke: 0.5px var(--text-color);
+    -webkit-text-stroke: 1px var(--text-color);
     -webkit-text-fill-color: transparent;
 }
 
