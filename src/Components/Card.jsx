@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '../Styles/Card.module.css'
+import styles from '../Styles/Card.module.css';
 function Card(props){
     const storedQuantity = sessionStorage.getItem(`quantity-${props.id}`);
     const storedFlipped = sessionStorage.getItem(`flipped-${props.id}`);

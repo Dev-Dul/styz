@@ -8,6 +8,7 @@
     grid-template-rows: auto;
     place-items: center;
     row-gap: 1.5rem;
+    color: var(--text-color);
     opacity: 0;
     scale: 0;
     transform: rotateY(180deg);
@@ -19,7 +20,7 @@
     scale: 1;
     opacity: 1;
     transform: rotate(0deg);
-    background: #fffff7;
+    background: var(--bg-color);
 }
 
 .header{
@@ -32,19 +33,20 @@
     justify-content: flex-end;
     /* background: white; */
     padding: 0 1rem;
+    background: var(--bg-color);
 }
 
 .header button{
     margin-right: 2rem;
 }
 
-@media screen and (max-width: 468px) {
-
-    .card{
-        height: 270px;
-        width: 80%;
+@media screen and (max-width: 968px) {
+    .shop{
+        grid-template-columns: repeat(3, 1fr);
     }
+}
 
+@media screen and (max-width: 468px) {
     .shop{
         grid-template-columns: repeat(2, 1fr);
     }

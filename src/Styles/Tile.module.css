@@ -8,9 +8,9 @@
     overflow: hidden;
     padding: 0.5rem;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 2px solid;
     position: relative;
-    box-shadow: 0px 0px 15px black;
+    box-shadow: 0px 0px 10px var(--shadow);
 }
 
 .deets{
@@ -47,7 +47,6 @@
 .img{
     width: 60%;
     height: 70%;
-    /* aspect-ratio: 1 /1; */
     object-fit: cover;
 }
 
@@ -62,8 +61,9 @@
     font-size: 0.8rem;
 }
 
-@media screen and (max-width: 468px) {
+
+@media screen and (max-width: 968px) {
     .tile{
-        width: 100%;
+        width: 90%;
     }
 }

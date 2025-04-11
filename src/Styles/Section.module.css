@@ -4,12 +4,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    color: var(--text-color);
+    background: var(--bg-color);
+    transition: all 2s ease;
 }
 
 .abs{
     position: absolute;
     z-index: 10;
+}
+
+.abs h1{
+    color: var(--text-color);
 }
 
 .impress{
@@ -30,6 +36,14 @@
     position: relative;
 }
 
+.wrapper{
+    transition: all 2s ease;
+    transform: translateX(100vw);
+}
+
+.wrapper.show{
+    transform: translate(0);
+}
 
 
 .img{
@@ -71,7 +85,7 @@
 }
 
 .btn{
-    width: 15rem;
+    width: 18rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -79,7 +93,8 @@
     transform: translateY(150px);
     transition: all 1.5s ease;
     transition-delay: 3s;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    background: #141414;
+    box-shadow: 10px 10px 5px var(--shadow);
 }
 
 .btn, .text h2{
@@ -117,7 +132,18 @@
     animation: scroll 2s ease-in-out forwards;
 }
 
-@media screen and (max-width: 468px) {
+@media screen  and (max-width: 968px) {
+    .img{
+        right: unset;
+    }
+
+    .text h2{
+        font-size: 1.3rem;
+    }
+    
+}
+
+@media screen and (max-width: 468px){
 
     .impress{
         padding: 0;

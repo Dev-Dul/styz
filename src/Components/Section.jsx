@@ -43,9 +43,7 @@ function Section({ sect, show, setShow }){
 
     const navigate = useNavigate();
     return (
-      <div
-        className={`${styles.section} ${styles.impress} ${show ? styles.show : ""}`}
-      >
+      <div className={`${styles.section} ${styles.impress} ${show ? styles.show : ""}`}>
         <div className={styles.text}>
           <div>
             <h2>When You Shop At Styz,</h2>
@@ -55,7 +53,7 @@ function Section({ sect, show, setShow }){
             </button>
           </div>
         </div>
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${show ? styles.show : ''}`}>
           {Images.map((image, i) => (
             <img
               key={i}
