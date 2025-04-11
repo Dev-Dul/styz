@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "erotiq";
+    src: url("../assets/Fonts/ErotiqueTrial-Bold.ttf");
+}
+
+@font-face {
+    font-family: "cinzel";
+    src: url("../assets/Fonts//CinzelDecorative-Black.ttf");
+}
+
 .section{
     height: 100vh;
     width: 100%;
@@ -78,6 +88,7 @@
     font-size: 2rem;
     transition: all 2s ease;
     transition-delay: 2s;
+    font-family: "erotiq";
 }
 
 .text h2:first-of-type{

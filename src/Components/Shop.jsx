@@ -4,9 +4,10 @@ import Loader from "./Loader";
 import ErrorPage from "./Error";
 import Card from "./Card";
 import styles from '../Styles/Shop.module.css'
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
 function Shop(){
+    const navigate = useNavigate();
     const context = useOutletContext();
     const check = context.location.pathname === '/shop';
     const [animClass, setAnimClass] = useState(false);
@@ -28,7 +29,7 @@ function Shop(){
     return(
         <div className={`${styles.shop} ${animClass ? styles.anim : ''}`}>
             <div className={styles.header}>
-                <button>Go to Cart</button>
+                <button onClick={() => navigate("/cart")}>Go to Cart</button>
             </div>
             {context.items.map((card, index) => {
                 return <Card key={index} id={card.id} img={card.image} title={card.title} price={card.price} context={context} />
