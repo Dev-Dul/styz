@@ -3,6 +3,7 @@ import styles from '../Styles/Cart.module.css';
 import Tile from '../Components/Tile';
 import { useState, useEffect } from "react";
 import { useOutletContext, useNavigate, useLocation, Outlet } from "react-router-dom";
+import { createPortal } from "react-dom";
 
 function Cart(){
   const context = useOutletContext();
@@ -58,18 +59,21 @@ function Cart(){
     (accumulator, item) => accumulator + item.price * item.count,
     0
   );
-  // console.log(filtered.length);
-  // console.log(context.cart.length);
+  
 
   return (
     <div className={`${styles.cart} ${animClass ? styles.anim : ""}`}>
       {location.pathname !== "/cart/checkout" && (
         <>
-          <div className={styles.header}>
-            <h2>Total: ${total}</h2>
-            <button onClick={clearCart}>Clear Cart</button>
-            <button onClick={() => navigate("/cart/checkout")}>Checkout</button>
-          </div>
+          {createPortal(
+            <div className={styles.header}>
+              <h2>Total: ${total}</h2>
+              <button onClick={clearCart}>Clear Cart</button>
+              <button onClick={() => navigate("/cart/checkout")}>
+                Checkout
+              </button>
+            </div>, document.body
+          )}
           {filtered.map((tile, index) => {
             const obj = context.cart.find((item) => item.id === tile.id);
             const count = obj.count;

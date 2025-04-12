@@ -4,10 +4,8 @@
   text-align: center;
   height: 100%;
   perspective: 1000px;
+  position: relative;
   transform-style: preserve-3d;
-  --bg-color: #ffffff;
-  --text-color: #000;
-  --shadow: #08080880;
   transition: all 1.5s ease;
 }
 

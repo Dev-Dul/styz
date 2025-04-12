@@ -10,8 +10,7 @@ function Header({cart}){
   const check = cart.length !== 0;
 
   useEffect(() => {
-    const root = document.getElementById("root");
-    
+    const root = document.body;
     
     if(darkMode){
       root.style.setProperty("--bg-color", "#080808");

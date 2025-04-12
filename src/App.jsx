@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import Header from './Components/Header'
 import { Outlet, useLocation } from 'react-router-dom'
 import getData from './Components/Handlers'
@@ -61,7 +62,8 @@ function App() {
 
   return(
     <>
-      <Header cart={cart} />
+      {createPortal(<Header cart={cart} />, document.body)}
+      {/* <Header cart={cart} /> */}
       <Outlet context={{cart, addCart, setCart, handleCart, items, loading, error, location }} />
     </>
   )

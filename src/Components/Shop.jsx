@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import useData from "./Handlers";
+import { createPortal } from "react-dom";
 import Loader from "./Loader";
 import ErrorPage from "./Error";
 import Card from "./Card";
@@ -28,9 +28,11 @@ function Shop(){
     
     return(
         <div className={`${styles.shop} ${animClass ? styles.anim : ''}`}>
-            <div className={styles.header}>
-                <button onClick={() => navigate("/cart")}>Go to Cart</button>
-            </div>
+            {createPortal(
+                <div className={styles.header}>
+                    <button onClick={() => navigate("/cart")}>Go to Cart</button>
+                </div>, document.body
+            )}
             {context.items.map((card, index) => {
                 return <Card key={index} id={card.id} img={card.image} title={card.title} price={card.price} context={context} />
             })}
